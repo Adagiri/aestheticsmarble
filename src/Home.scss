@@ -1,0 +1,274 @@
+.home {
+  overflow: hidden;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #0a0a0a6c;
+    width: 100%;
+    height: 100%;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 1.3em;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #0a0a0a;
+    color: #c4b282;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0a0a0a;
+      color: #c4b282;
+      z-index: -2;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: #c4b282;
+      transition: all 0.3s;
+
+      z-index: -1;
+    }
+    &:hover {
+      color: #0a0a0a;
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  .sectionOne {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(./assets/homeBanner.jpg);
+    background-position: top;
+    position: relative;
+    background-size: cover;
+    object-fit: contain;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-repeat: no-repeat;
+
+    div {
+      margin-bottom: 2.5em;
+      text-align: center;
+      color: #e7e2e2;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      div {
+        text-align: center;
+        color: #e7e2e2;
+        width: 70%;
+        opacity: 1;
+        padding: 1em;
+        z-index: 2;
+        border-radius: 3px;
+
+        h1 {
+          font-size: 40px;
+          color: #c4b282;
+        }
+        div {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          p {
+            color: #e7e2e2;
+            margin-top: 0.5em;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            font-size: 18px;
+            font-weight: 500;
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+
+  .sectionTwo {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
+
+    .sectionTwo__left {
+      min-width: 40%;
+      background-color: #0a0a0a;
+      object-fit: contain;
+      position: relative;
+      color: #ffffff;
+      padding-top: 3em;
+      padding-bottom: 3em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div {
+        width: 60%;
+        h3 {
+          margin-bottom: 20px;
+          color: #c4b282;
+          position: relative;
+          width: fit-content;
+
+          &:after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: #e7e2e2;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+          }
+        };
+
+        h1 {
+          font-weight: lighter;
+          margin-bottom: 1em;
+          color: #c4b282;
+          width: 80%;
+        }
+
+        p {
+          margin-bottom: 1em;
+          line-height: 1.5;
+          letter-spacing: 1px;
+          font-weight: 500;
+          color: #e7e2e2;
+          width: 90%;
+        }
+
+        button {
+          padding: 1em;
+          border: 2px solid #c4b282;
+          &:hover {
+            color: #0a0a0a;
+            
+          }
+        }
+      }
+    }
+
+    .sectionTwo__right {
+      min-width: 50%;
+      background-color: #c4b282;
+      background-repeat: no-repeat;
+      background-image: url(./assets/services.jpg);
+      background-position: top;
+      background-size: cover;
+      min-height: 100vh;
+      position: relative;
+    }
+  }
+
+  .sectionThree {
+    background-image: url(./assets/industry.jpg);
+    height: fit-content;
+    position: relative;
+    background-repeat: repeat;
+    min-height: 100vh;
+
+    .overlay {
+      background-color: #0a0a0ae3;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em;
+      position: relative;
+
+      .heading {
+        width: 50%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        h1 {
+          margin-bottom: 10px;
+          color: #c4b282;
+          font-size: 35px;
+          position: relative;
+          width: fit-content;
+          font-weight: normal;
+
+          &:after {
+            content: "";
+            width: 100%;
+            height: 3px;
+            background-color: #c4b282;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+          }
+        }
+
+        p {
+          color: #e7e2e2;
+          margin-top: 0.5em;
+          line-height: 1.6;
+          letter-spacing: 1px;
+          font-size: 18px;
+          font-weight: 500;
+        }
+      }
+
+      .galleries {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        flex-wrap: wrap;
+        margin-top: 2em;
+
+        &:after {
+          content: "";
+          width: 100%;
+          height: 3px;
+          background-color: #c4b282;
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+        }
+
+        .image {
+          background-image: url(./assets/architecture.jpg);
+          background-size: cover;
+          width: 350px;
+          height: 200px;
+          margin: 1em;
+        }
+      }
+    }
+  }
+}
