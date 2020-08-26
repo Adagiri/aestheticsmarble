@@ -1,0 +1,51 @@
+.resource {
+
+
+    .main {
+        padding: 2rem;
+        h2 {
+            color: #3f3e3e;
+            position: relative;
+            width: fit-content;
+            font-weight: lighter;
+            margin-bottom: 1em;
+            margin-top: 2em;
+    
+            &:after {
+              content: "";
+              width: 100%;
+              height: 2px;
+              background-color: #3f3e3e;
+              position: absolute;
+              bottom: -10px;
+              left: 0;
+            }
+          }
+    
+          p {
+            margin-bottom: 0.8em;
+            line-height: 1.8;
+            // letter-spacing: .5px;
+            font-weight: 500;
+            width: 90%;
+            color: #3f3e3e;
+          }
+
+          .resources {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-wrap: wrap;
+              width: 100%;
+
+              .resource {
+                  img {
+                      display: block;
+                      height: 300px;
+                      object-fit: contain;
+                      width: 200px;
+                  }
+              }
+          }
+    }
+}

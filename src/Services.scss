@@ -67,3 +67,28 @@
         }
       }
 }
+
+
+
+
+@media screen and (max-width: 900px) {
+  .services {
+    .head {
+      padding-left: 2rem;
+    }
+
+    .list {
+      padding-right: 5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .services {
+    .list {
+      padding: 1rem;
+      padding-top: 4rem;
+        padding-left: 3rem;
+    }
+  }
+}

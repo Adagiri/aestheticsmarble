@@ -1,12 +1,13 @@
 .about {
+  width: 100vw;
   .banner {
-    padding: 1em;
-    padding-left: 5em;
+    padding: 1rem;
+    padding-left: 5rem;
     color: white;
     display: flex;
     justify-content: center;
     font-weight: lighter;
-    font-size: 1em;
+    font-size: 1rem;
     flex-direction: column;
     background-image: url(./assets/1.jpg);
 
@@ -14,7 +15,7 @@
       margin-bottom: 0.1em;
       color: #c4b282;
       font-weight: lighter;
-      margin-bottom: .8em;
+      margin-bottom: 0.8em;
     }
     p {
       font-weight: 400;
@@ -25,10 +26,10 @@
   }
 
   .message {
-    padding: 5em;
-    padding-top: 1em;
-    padding-left: 5em;
-    padding-right: 15em;
+    padding: 5rem;
+    padding-top: 1rem;
+    padding-left: 5rem;
+    padding-right: 15rem;
 
     -webkit-box-shadow: inset -1px 5px 20px -6px #0a0a0a;
     -moz-box-shadow: inset -1px 5px 20px -6px #0a0a0a;
@@ -40,8 +41,8 @@
       position: relative;
       width: fit-content;
       font-weight: lighter;
-      margin-bottom: 1em;
-      margin-top: 2em;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
 
       &:after {
         content: "";
@@ -55,12 +56,33 @@
     }
 
     p {
-      margin-bottom: 1.5em;
+      margin-bottom: 1.5rem;
       line-height: 1.8;
       // letter-spacing: .5px;
       font-weight: 500;
       width: 90%;
       color: #3f3e3e;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .about {
+    .banner {
+      padding-left: 2rem;
+    }
+
+    .message {
+      padding-right: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about {
+    .message {
+      padding: 2rem;
+      padding-right: 2rem;
     }
   }
 }

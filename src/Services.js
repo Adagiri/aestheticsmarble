@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./Services.scss";
+import Header from './Header';
 
 function Services() {
+
+    useEffect(() => {
+        document.title = "Services - Aesthetics Marble World"
+        // return () => {
+        //     cleanup
+        // }
+    }, [])
+
     return (
         <div className="services">
+        <Header />
         <div className="head">
         <h1>Services</h1>
         <p>OUR CORE COMPETENCE</p>

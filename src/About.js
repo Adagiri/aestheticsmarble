@@ -1,9 +1,27 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./About.scss";
+import Header from './Header';
 
 function About() {
+
+    // useEffect(() => {
+       
+    //     document.title === "Company - Aesthetics Marble World"
+    //     return {
+
+    //     }
+    // });
+
+    useEffect(() => {
+        document.title = "Company - Aesthetics Marble World"
+        // return () => {
+        //     cleanup
+        // }
+    }, []);
+
     return (
         <div className="about">
+        <Header />
             <div className="banner">
             <h1>Company</h1>
             <p>MISSION • WHO WE ARE</p>
