@@ -1,16 +1,10 @@
 import React, {useEffect} from 'react';
 import "./About.scss";
 import Header from './Header';
+import Fade from 'react-reveal/Fade';
+import Footer from './Footer';
 
-function About() {
-
-    // useEffect(() => {
-       
-    //     document.title === "Company - Aesthetics Marble World"
-    //     return {
-
-    //     }
-    // });
+function About(props) {
 
     useEffect(() => {
         document.title = "Company - Aesthetics Marble World"
@@ -19,19 +13,28 @@ function About() {
         // }
     }, []);
 
+    const findSrc = (id) => {
+        return props.banners && props.banners.docs.find(doc => doc.id === id).data().files.src
+     };
+
     return (
         <div className="about">
         <Header />
-            <div className="banner">
+       { props.banners ?  <Fade left cascade>
+            <div className="banner" style={{backgroundImage: `url(${findSrc("KMP6g3zr36O4mCKmBYXW")})`}}>
             <h1>Company</h1>
             <p>MISSION • WHO WE ARE</p>
             </div>
+</Fade> : <div></div>}
 
             <div className="message">
+            <Fade left >
             <h2>Mission Statement</h2>
             <p>Whether you are an Architect, Builder, Contractor or residential home owner, our expert craftsmanship and attention to detail will bring your project to life.</p>
+</Fade>
 
-            <h2>About Us</h2>
+<Fade left >
+<h2>About Us</h2>
             <p>Aesthetics Marble world Ltd. is one of the top companies in Nigeria, specializing in Marble and other Natural stones procured from all over the world.
             It has been in existence for more than 15 years, registered and incorporated under the Nigeria Corporate Affairs Commision.
             </p>
@@ -45,8 +48,11 @@ function About() {
             <p>We pride ourselves in consistently following project schedules and standing by our guarantees. If you are remodeling or building from scratch, we will vitalize our experience on the job to handle your interior and exterior needs.</p>
 
             <p> We are fully equiped to handle all phase of marble, stores and ceramic tiles installation as well as polishing and sealing your residential or commercial needs. We are now able to provide our clients with competitive prices on all installation and supply.</p>
-
+</Fade>
+            
             </div>
+
+            <Footer />
         </div>
     )
 }

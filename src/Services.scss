@@ -1,75 +1,68 @@
 .services {
+  // overflow: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  .head {
+    padding: 1em;
+    padding-left: 5em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-weight: lighter;
+    font-size: 1em;
+    flex-direction: column;
 
-    .head {
-        padding: 1em;
-        padding-left: 5em;
-        color: white;
-        display: flex;
-        justify-content: center;
-        font-weight: lighter;
-        font-size: 1em;
-        flex-direction: column;
-        background-image: url(./assets/3.jpg);
-    
+    h1 {
+      margin-bottom: 0.1em;
+      color: #c4b282;
+      font-weight: lighter;
+      margin-bottom: 0.8em;
+    }
+    p {
+      font-weight: 400;
+      letter-spacing: 1px;
+      font-weight: lighter;
+      color: white;
+    }
+  }
 
-        h1 {
-          margin-bottom: 0.1em;
-          color: #c4b282;
-          font-weight: lighter;
-          margin-bottom: .8em;
-        }
-        p {
-          font-weight: 400;
-          letter-spacing: 1px;
-          font-weight: lighter;
-          color: white;
-        }
+  .list {
+   
+    padding: 5em;
+    padding-top: 3em;
+    padding-left: 6em;
+    padding-right: 15em;
+
+
+    h1 {
+      margin-top: 1.5em;
+      color: #080911;
+      position: relative;
+      width: fit-content;
+      font-weight: lighter;
+      margin-bottom: 1em;
+
+      &:after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #080911;
+        position: absolute;
+        bottom: -10px;
+        left: 0;
       }
+    }
 
-      .list {
-        padding: 5em;
-        padding-top: 3em;
-        padding-left: 6em;
-        padding-right: 15em;
-    
-        -webkit-box-shadow: inset -1px 5px 20px -6px #0a0a0a;
-        -moz-box-shadow: inset -1px 5px 20px -6px #0a0a0a;
-        box-shadow: inset -1px 5px 20px -6px #0a0a0a;
-    
-        h1 {
-          margin-top: 1.5em;
-          color: #3f3e3e;
-          position: relative;
-          width: fit-content;
-          font-weight: lighter;
-          margin-bottom: 1em;
-    
-    
-          &:after {
-            content: "";
-            width: 100%;
-            height: 2px;
-            background-color: #3f3e3e;
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-          }
-        }
-        
-    
-        ul li {
-          margin-bottom: .8em;
-          line-height: 1.8;
-          // letter-spacing: .5px;
-          font-weight: 500;
-          width: 90%;
-          color: #3f3e3e;
-        }
-      }
+    ul li {
+      margin-bottom: 0.8em;
+      line-height: 1.8;
+      // letter-spacing: .5px;
+      font-weight: 500;
+      width: 90%;
+      color: #080911;
+    }
+  }
 }
-
-
-
 
 @media screen and (max-width: 900px) {
   .services {
@@ -88,7 +81,7 @@
     .list {
       padding: 1rem;
       padding-top: 4rem;
-        padding-left: 3rem;
+      padding-left: 3rem;
     }
   }
 }

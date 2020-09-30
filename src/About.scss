@@ -1,5 +1,5 @@
 .about {
-  width: 100vw;
+ 
   .banner {
     padding: 1rem;
     padding-left: 5rem;
@@ -9,7 +9,6 @@
     font-weight: lighter;
     font-size: 1rem;
     flex-direction: column;
-    background-image: url(./assets/1.jpg);
 
     h1 {
       margin-bottom: 0.1em;
@@ -31,13 +30,10 @@
     padding-left: 5rem;
     padding-right: 15rem;
 
-    -webkit-box-shadow: inset -1px 5px 20px -6px #0a0a0a;
-    -moz-box-shadow: inset -1px 5px 20px -6px #0a0a0a;
-    box-shadow: inset -1px 5px 20px -6px #0a0a0a;
 
     h2 {
       // margin-bottom: 20px;
-      color: #3f3e3e;
+      color: #080911;
       position: relative;
       width: fit-content;
       font-weight: lighter;
@@ -48,7 +44,7 @@
         content: "";
         width: 100%;
         height: 2px;
-        background-color: #3f3e3e;
+        background-color: #080911;
         position: absolute;
         bottom: -10px;
         left: 0;
@@ -61,7 +57,7 @@
       // letter-spacing: .5px;
       font-weight: 500;
       width: 90%;
-      color: #3f3e3e;
+      color: #080911;
     }
   }
 }

@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import "./Header.scss";
-import Logo from "./Logo4.png";
+import Logo from "./assets/Logo.png";
 import { Link } from 'react-router-dom';
-import Toggle from './Toggle';
 
 function Header() {
 
@@ -22,7 +21,7 @@ function Header() {
        
 
         <div >
-        <img className="header__logo" src={Logo} alt="Aesthetics Marble World" />
+        <Link to="/"><img className="header__logo" src={Logo} alt="Aesthetics Marble World" /></Link>
         </div>
         <div className="header__navs">
         <Link className={active === "" && "a"} to="/">HOME</Link>

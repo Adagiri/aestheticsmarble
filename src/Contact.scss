@@ -1,12 +1,12 @@
 .contact {
-  -webkit-box-shadow: inset -1px 5px 25px -6px #0a0a0a;
-  -moz-box-shadow: inset -1px 5px 25px -6px #0a0a0a;
-  box-shadow: inset -1px 5px 25px -6px #0a0a0a;
-  width: 100vw;
+
 
   .map {
-    min-height: 70vh;
+   height: 80vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .main {
@@ -21,7 +21,7 @@
 
 
     h2 {
-      color: #3f3e3e;
+      color: #080911;
       position: relative;
       width: fit-content;
       font-weight: lighter;
@@ -32,7 +32,7 @@
         content: "";
         width: 100%;
         height: 2px;
-        background-color: #3f3e3e;
+        background-color: #080911;
         position: absolute;
         bottom: -10px;
         left: 0;
@@ -44,7 +44,7 @@
         line-height: 1.5;
         // letter-spacing: .5px;
         font-weight: 500;
-        color: #3f3e3e;
+        color: #080911;
     }
   }
 };

@@ -1,9 +1,12 @@
-import React, { useEffect, useState, lazy, Suspense, } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
+// import 'mapbox-gl/dist/mapbox-gl.css';
 import "./App.scss";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import SimpleReactLightbox from "simple-react-lightbox";
 import Spinner from "./Spinner";
-import { AnimatedSwitch, AnimatedRoute } from 'react-router-transition';
+import { db } from "./firebase";
+import ErrorBoundary from "./ErrorBoundary";
+import Footer from "./Footer";
 
 
 const About = lazy(() => import("./About"));
@@ -15,6 +18,52 @@ const Project = lazy(() => import("./Project"));
 
 function App() {
   const [scroll, setScroll] = useState(false);
+  const [banners, setBanners] = useState("");
+  const [gallery, setGallery] = useState("");
+  const [homeGallery, setHomeGallery] = useState("");
+  const [map, setMap] = useState("");
+  const [lists, setLists] = useState("");
+  const [resource, setResource] = useState("");
+
+  useEffect(() => {
+    var landmarks = Promise.all([
+      db.collection("banners")
+        .get()
+        .then(function (querySnapshot) {
+          setBanners(querySnapshot)
+        }),
+        db.collection("gallery")
+        .get()
+        .then(function (querySnapshot) {
+          setGallery(querySnapshot)
+        }),
+        db.collection("homeGallery")
+        .get()
+        .then(function (querySnapshot) {
+          setHomeGallery(querySnapshot)
+        }),
+        db.collection("lists")
+        .get()
+        .then(function (querySnapshot) {
+          setLists(querySnapshot)
+        }),
+        db.collection("map")
+        .get()
+        .then(function (querySnapshot) {
+          setMap(querySnapshot)
+        }),
+        db.collection("resource")
+        .get()
+        .then(function (querySnapshot) {
+          setResource(querySnapshot)
+        })
+     
+  ]);
+  
+    // return () => {
+  
+    // };
+  }, []);
 
   const scrollFunc = () => {
     // Get the current scroll value
@@ -44,7 +93,6 @@ function App() {
     <SimpleReactLightbox>
       <div className="App">
         <Router>
-
           <a
             className={scroll ? "top-link show" : "top-link hide"}
             href="##"
@@ -54,24 +102,22 @@ function App() {
               <path d="M12 6H0l6-6z" />
             </svg>
           </a>
-          <Suspense fallback={<Spinner />}>
-          <AnimatedSwitch
-          atEnter={{ offset: -100 }}
-          atLeave={{ offset: 100 }}
-          atActive={{ offset: 0 }}
-          mapStyles={(styles) => ({
-            transform: `translateX(${styles.offset}%)`,
-          })}
-          className="switch-wrapper"
-        >
-                <Route path="/" exact component={Home}  />
-                <Route path="/projects" exact component={Project} />
-                <Route path="/about" exact component={About} />
-                <Route path="/services" exact component={Services} />
-                <Route path="/contact" exact component={Contact} />
-                <Route path="/resource" exact component={Resource} />
-                </AnimatedSwitch>
-          </Suspense>
+            <Switch>
+            <ErrorBoundary>
+            <Suspense fallback={<Spinner />}>
+            <Route path="/" exact render={() => <Home homeGallery={homeGallery} banners={banners} />} />
+
+              <Route path="/projects" render={() => <Project  banners={banners} gallery={gallery} lists={lists} />} />
+              <Route path="/about" render={() => <About  banners={banners} />} />
+              <Route path="/services" render={() => <Services  banners={banners} lists={lists} />} />
+              <Route path="/contact" render={() => <Contact map={map}  />} />
+              <Route path="/resource" render={() => <Resource  banners={banners} resource={resource} />} />
+            </Suspense>
+            </ErrorBoundary>
+              
+            </Switch>
+
+          
         </Router>
       </div>
     </SimpleReactLightbox>

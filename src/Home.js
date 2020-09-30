@@ -2,21 +2,30 @@ import React, { useEffect } from "react";
 import "./Home.scss";
 import { Link } from "react-router-dom";
 import { SRLWrapper } from "simple-react-lightbox";
-import GalleryImage from "./assets/homeBanner.jpg";
 import Header from "./Header";
-import Toggle from "./Toggle";
+import Fade from 'react-reveal/Fade';
+import Spinner from "./Spinner";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import Footer from "./Footer";
 
-function Home() {
-
+function Home(props) {
+  
   useEffect(() => {
-    document.title = "Aesthetics Marble World Ltd."
+    document.title = "Aesthetics Marble World Ltd.";
 }, [])
+
+const findSrc = (id) => {
+   return props.banners && props.banners.docs.find(doc => doc.id === id).data().files.src
+};
+
 
   return (
     <div className="home">
     <Header />
-      <div class="row"></div>
-      <div className="sectionOne">
+    {props.banners ? <Fade   >
+       <div class="row"></div>
+      <div className="sectionOne" style={{backgroundImage: `url(${findSrc("AD2oNtsYmyo8yaT0SvQn")})`}}>
       <div className="overlay">
         </div>
         <div>
@@ -39,8 +48,11 @@ function Home() {
           </div>
         </div>
       </div>
+      </Fade> : <div></div>}
 
+    
       <div className="sectionTwo">
+      <Fade left  >
         <div className="sectionTwo__left">
           <div>
             <h3>WHO WE ARE</h3>
@@ -58,10 +70,15 @@ function Home() {
             
           </div>
         </div>
-        <div className="sectionTwo__right"></div>
+        </Fade>
+
+       { props.banners ?  <Fade right  >
+        <div className="sectionTwo__right" style={{backgroundImage: `url(${findSrc("YLHiruotmnMMKw70MpIk")})`}}></div>
+        </Fade> : <div></div>}
       </div>
 
-      <div className="sectionThree">
+      
+      <div className="sectionThree" style={{backgroundImage: `url(${findSrc("ouRFIsKsgF8FqftHFa9n")})`}}>
         <div className="overlay">
         </div>
         <div className="content">
@@ -72,33 +89,29 @@ function Home() {
               a reputation for the highest quality of professional services nationwide. <Link to="/projects">View more</Link>
             </p>
           </div>
+          <Fade top  >
           <SRLWrapper>
           <div className="galleries">
+          <div className="carousel">
+          <Carousel className="carous" showThumbs={false}  autoPlay={true} showIndicators showStatus={false} infiniteLoop centerMode >
+          {
+            props.homeGallery && props.homeGallery.docs.map((doc, index) => (
+              <div key={index}>
+              <img src={doc.data().files.src } alt={doc.data().name}/>
+              <p className="legend">{doc.data().name}</p>
+          </div>
+            ))
+          }
           
-          <a href={ GalleryImage } data-attribute="SRL">
-          <img className="image" src={ GalleryImage } alt="Nothing" />
-          </a>
-          <a href={ GalleryImage } data-attribute="SRL">
-          <img className="image" src={ GalleryImage } alt="Nothing" />
-          </a>
-          <a href={ GalleryImage } data-attribute="SRL">
-          <img className="image" src={ GalleryImage } alt="Nothing" />
-          </a>
-          <a href={ GalleryImage } data-attribute="SRL">
-          <img className="image" src={ GalleryImage } alt="Nothing" />
-          </a>
-          <a href={ GalleryImage } data-attribute="SRL">
-          <img className="image" src={ GalleryImage } alt="Nothing" />
-          </a>
-          <a href={ GalleryImage } data-attribute="SRL">
-          <img className="image" src={ GalleryImage } alt="Nothing" />
-          </a>
-         
+      </Carousel>
+          </div>
+  
           </div>
          </SRLWrapper>
-         
+         </Fade>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
